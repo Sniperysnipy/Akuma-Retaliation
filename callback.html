@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verification Complete</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .success { color: green; }
+        .code { background: #f4f4f4; padding: 10px; border-radius: 5px; font-family: monospace; word-break: break-all; }
+        .instructions { background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <h1>Verification Complete</h1>
+    
+    <div id="success" style="display: none;">
+        <p class="success">Your Roblox account has been successfully verified!</p>
+        
+        <div class="instructions">
+            <h3>Next Steps:</h3>
+            <ol>
+                <li>Copy your authorization code below</li>
+                <li>Return to Discord</li>
+                <li>Use the command: <code>!linkaccount YOUR_CODE</code></li>
+            </ol>
+        </div>
+        
+        <p>Your authorization code is:</p>
+        <p id="authCode" class="code"></p>
+        
+        <button onclick="copyCode()">Copy Code</button>
+        <span id="copyStatus" style="margin-left: 10px; color: green;"></span>
+    </div>
+    
+    <div id="error" style="display: none;">
+        <p style="color: red;">An error occurred during verification. Please try again.</p>
+        <p><a href="index.html">Return to verification page</a></p>
+    </div>
+
+    <script>
+        // Parse the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const error = urlParams.get('error');
+        const errorDescription = urlParams.get('error_description');
+        
+        if (code) {
+            document.getElementById('success').style.display = 'block';
+            document.getElementById('authCode').textContent = code;
+        } else if (error) {
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').innerHTML += `<p>Error: ${error}</p>`;
+            if (errorDescription) {
+                document.getElementById('error').innerHTML += `<p>Details: ${errorDescription}</p>`;
+            }
+        } else {
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').innerHTML += '<p>No authorization code received.</p>';
+        }
+        
+        function copyCode() {
+            const codeText = document.getElementById('authCode').textContent;
+            navigator.clipboard.writeText(codeText).then(() => {
+                document.getElementById('copyStatus').textContent = 'Copied!';
+                setTimeout(() => {
+                    document.getElementById('copyStatus').textContent = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

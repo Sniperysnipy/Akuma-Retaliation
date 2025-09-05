@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox Verification</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .btn { background-color: #00a2ff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; }
+        .btn:hover { background-color: #0088cc; }
+        .container { border: 1px solid #ddd; padding: 20px; border-radius: 5px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Roblox Account Verification</h1>
+    <p>Click the button below to verify your Roblox account using OAuth2.</p>
+    
+    <div class="container">
+        <h2>Verification Process:</h2>
+        <ol>
+            <li>Click the "Verify with Roblox" button</li>
+            <li>Log in to your Roblox account</li>
+            <li>Authorize the application</li>
+            <li>Return to Discord and use the <code>!linkaccount</code> command</li>
+        </ol>
+        
+        <a href="#" id="verifyBtn" class="btn">Verify with Roblox</a>
+    </div>
+    
+    <h2>Why verify?</h2>
+    <ul>
+        <li>Access clan features in our Discord server</li>
+        <li>Request help from other clan members in games</li>
+        <li>Participate in clan events and activities</li>
+    </ul>
+    
+    <p>By verifying, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
+
+    <script>
+        // Get the verification URL from query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const verifyUrl = urlParams.get('verify_url');
+        
+        if (verifyUrl) {
+            document.getElementById('verifyBtn').href = verifyUrl;
+        } else {
+            document.getElementById('verifyBtn').style.display = 'none';
+            document.querySelector('.container').innerHTML += 
+                '<p style="color: red;">Error: Verification URL not provided. Please use the !verify command in Discord.</p>';
+        }
+    </script>
+</body>
+</html>
