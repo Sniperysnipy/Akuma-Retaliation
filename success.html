@@ -6,7 +6,7 @@
         body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
-            padding: 50px; 
+            padding: 50px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             height: 100vh;
@@ -15,36 +15,42 @@
             justify-content: center;
             align-items: center;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            max-width: 500px;
-        }
         .success { 
-            color: #4CAF50; 
             font-size: 32px; 
             font-weight: bold;
             margin-bottom: 20px;
         }
-        .info { 
-            margin: 20px 0; 
-            font-size: 18px;
+        .checkmark {
+            font-size: 80px;
+            margin-bottom: 30px;
         }
-        .emoji { 
-            font-size: 48px; 
-            margin-bottom: 20px;
+        .info { 
+            margin: 15px 0; 
+            font-size: 18px;
+            max-width: 500px;
+        }
+        .button {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="emoji">✅</div>
-        <div class="success">Verification Successful!</div>
-        <div class="info">Your Roblox account has been automatically linked to your Discord account.</div>
-        <div class="info">Return to Discord - you'll receive a confirmation message shortly!</div>
-        <div class="info">You can close this window now. 🎉</div>
-    </div>
+    <div class="checkmark">✅</div>
+    <div class="success">Verification Complete!</div>
+    <div class="info">Your Discord and Roblox accounts have been successfully linked.</div>
+    <div class="info">You've been automatically verified in the Discord server.</div>
+    <div class="info">You can close this window and return to Discord.</div>
+    
+    <a href="https://discord.com" class="button">Return to Discord</a>
 </body>
 </html>
