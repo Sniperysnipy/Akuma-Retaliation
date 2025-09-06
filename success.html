@@ -3,17 +3,48 @@
 <head>
     <title>Verification Successful</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        .success { color: green; font-size: 24px; }
-        .info { margin: 20px 0; }
-        .loading { color: blue; }
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+        }
+        .success { 
+            color: #4CAF50; 
+            font-size: 32px; 
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .info { 
+            margin: 20px 0; 
+            font-size: 18px;
+        }
+        .emoji { 
+            font-size: 48px; 
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <div class="success">✅ Verification Successful!</div>
-    <div class="info">Your Roblox account has been linked to your Discord account.</div>
-    <div class="loading">⏳ Processing your verification automatically...</div>
-    <div class="info">You will receive a Discord DM when complete.</div>
-    <div class="info">You can close this window now.</div>
+    <div class="container">
+        <div class="emoji">✅</div>
+        <div class="success">Verification Successful!</div>
+        <div class="info">Your Roblox account has been automatically linked to your Discord account.</div>
+        <div class="info">Return to Discord - you'll receive a confirmation message shortly!</div>
+        <div class="info">You can close this window now. </div>
+    </div>
 </body>
 </html>
